@@ -80,3 +80,15 @@ findNavigator().path("/route/second").cast<ActivityTargetNavigator>().activityOp
 ```
 
 #### 4.4 单Activity的Fragment之间导航暂未支持, 可自行继承FragmentTargetNavigator后通过NavigatorEngine实现
+
+```
+    allprojects {
+		repositories {
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+	dependencies {
+        implementation 'com.github.qstumn:Router:$release'
+    }
+```
