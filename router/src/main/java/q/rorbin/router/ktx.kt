@@ -38,6 +38,8 @@ internal fun Any.putToBundle(bundleKey: String = UNIQUE_DATA_KEY, bundle: Bundle
             }
             value.putToBundle(key, newBundle)
         }
+    } else {
+        throw RouteErrorException("cannot pass param with key $bundleKey, unsupport this data type")
     }
     return newBundle
 }
@@ -109,8 +111,9 @@ fun <R> Fragment.registerForNavigatorResult(resultCallback: ResultCallback<R>): 
     return register
 }
 
-private fun <R> registerForNavigatorResult(register: NavigatorResultRegister<R>, fragmentManager: () -> FragmentManager,
-                                           lifecycle: Lifecycle
+private fun <R> registerForNavigatorResult(
+    register: NavigatorResultRegister<R>, fragmentManager: () -> FragmentManager,
+    lifecycle: Lifecycle
 ) {
     val bindRequest = {
         val fragment = ResultBlankFragment.obtainSelfByFragmentManager(fragmentManager())

@@ -1,6 +1,8 @@
 package q.rorbin.router.navigator
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.core.app.ActivityOptionsCompat
 import q.rorbin.router.NavigatorResultRegister
 import q.rorbin.router.ResultCallback
 import q.rorbin.router.putToBundle
@@ -62,4 +64,14 @@ abstract class Navigator internal constructor() {
      */
     abstract fun pop(resultData: Any?)
 
+}
+
+fun Navigator.activityOptions(options: ActivityOptionsCompat): Navigator {
+    (this as? ActivityTargetNavigator)?.activityOptions(options)
+    return this
+}
+
+fun Navigator.intent(intent: Intent): Navigator {
+    (this as? ActivityTargetNavigator)?.intent(intent)
+    return this
 }

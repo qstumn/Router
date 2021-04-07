@@ -26,7 +26,7 @@ data class RouteTransition(val enterAnim: Int, val exitAnim: Int)
 
 class RouteErrorException(message: String? = null) : Exception(message)
 
-internal const val UNIQUE_DATA_KEY = "navigator_transmit_data_auto_key"
+const val UNIQUE_DATA_KEY = "navigator_transmit_data_auto_key"
 
 data class NavigatorResult<T>(val requestCode: Int, val intent: Intent) {
 
